@@ -3,6 +3,7 @@ import 'package:sl3v1_flutter/AppControllers/dark_theme_config.dart';
 import 'package:sl3v1_flutter/Screens/exercicio_01.dart';
 import 'package:sl3v1_flutter/Screens/exercicio_02.dart';
 import 'package:sl3v1_flutter/Screens/exercicio_03.dart';
+import 'package:sl3v1_flutter/Screens/exercicio_04.dart';
 
 
 class MainHome extends StatefulWidget {
@@ -72,7 +73,20 @@ class _MainHomeState extends State<MainHome> {
                     ),
                   );
                 },child: Text('Exercicio 03')),
-              )
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: ElevatedButton(onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const Exercicio04();
+                      },
+                    ),
+                  );
+                },child: Text('Exercicio 04')),
+              ),
             ],
           ),
         ),
