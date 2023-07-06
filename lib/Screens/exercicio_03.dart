@@ -1,8 +1,15 @@
+/** Crie uma tela com um contador e dois botões.
+    - Um botão (+) irá incrementar o contador;
+    - Um botão (-) irá decrementar o contador;
+    - Exiba o contador em tela
+ */
+
+
+
 import 'package:flutter/material.dart';
 
 class CounterHome extends StatefulWidget {
-  const CounterHome({super.key, required this.title});
-  final String title;
+  const CounterHome({super.key});
 
   @override
   State<CounterHome> createState() => _CounterHomeState();
@@ -26,7 +33,7 @@ class _CounterHomeState extends State<CounterHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text('Contador'),
       ),
       body: Center(
         child: Column(
