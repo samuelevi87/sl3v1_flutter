@@ -191,7 +191,6 @@ class _Exercicio04State extends State<Exercicio04> {
   }
 }
 
-// creating Stateless Widget for buttons
 class MyButton extends StatelessWidget {
   final color;
   final textColor;
