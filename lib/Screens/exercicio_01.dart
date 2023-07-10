@@ -6,6 +6,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:sl3v1_flutter/Screens/main_home.dart';
 
 class Exercicio01 extends StatefulWidget {
   const Exercicio01({super.key});
@@ -20,6 +21,9 @@ class _Exercicio01State extends State<Exercicio01> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Exercício 1'),
+        actions: const [
+          CustomSwitch(),
+        ],
       ),
       body: Column(
         children: [

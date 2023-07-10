@@ -3,11 +3,9 @@ import 'package:sl3v1_flutter/AppControllers/dark_theme_config.dart';
 import 'package:sl3v1_flutter/Screens/exercicio_01.dart';
 import 'package:sl3v1_flutter/Screens/exercicio_02.dart';
 import 'package:sl3v1_flutter/Screens/exercicio_03.dart';
-import 'package:sl3v1_flutter/Screens/calculadora_gridview.dart';
 import 'package:sl3v1_flutter/Screens/exercicio_04.dart';
-
-import 'exercicio_05.dart';
-
+import 'package:sl3v1_flutter/Screens/exercicio_05.dart';
+import 'package:sl3v1_flutter/Screens/calculadora_gridview.dart';
 
 class MainHome extends StatefulWidget {
   const MainHome({super.key, required this.title});
@@ -28,8 +26,8 @@ class _MainHomeState extends State<MainHome> {
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
-          actions: [
-            const CustomSwitch(),
+          actions: const [
+            CustomSwitch(),
           ],
         ),
         body: Container(
@@ -127,10 +125,10 @@ class CustomSwitch extends StatefulWidget {
   const CustomSwitch({super.key});
 
   @override
-  State<CustomSwitch> createState() => _CustomSwitchState();
+  State<CustomSwitch> createState() => CustomSwitchState();
 }
 
-class _CustomSwitchState extends State<CustomSwitch> {
+class CustomSwitchState extends State<CustomSwitch> {
   @override
   Widget build(BuildContext context) {
     return Switch(

@@ -6,6 +6,8 @@
 
 import 'package:flutter/material.dart';
 
+import 'main_home.dart';
+
 class Exercicio02 extends StatefulWidget {
   const Exercicio02({super.key});
 
@@ -19,6 +21,9 @@ class _Exercicio02State extends State<Exercicio02> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Exercício 02'),
+        actions: const [
+          CustomSwitch(),
+        ],
       ),
       body: Column(
         children: [
