@@ -3,7 +3,10 @@ import 'package:sl3v1_flutter/AppControllers/dark_theme_config.dart';
 import 'package:sl3v1_flutter/Screens/exercicio_01.dart';
 import 'package:sl3v1_flutter/Screens/exercicio_02.dart';
 import 'package:sl3v1_flutter/Screens/exercicio_03.dart';
+import 'package:sl3v1_flutter/Screens/calculadora_gridview.dart';
 import 'package:sl3v1_flutter/Screens/exercicio_04.dart';
+
+import 'exercicio_05.dart';
 
 
 class MainHome extends StatefulWidget {
@@ -37,7 +40,7 @@ class _MainHomeState extends State<MainHome> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 8.0),
-                child: ElevatedButton(onPressed: (){
+                child: FilledButton.tonal(onPressed: (){
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -50,7 +53,7 @@ class _MainHomeState extends State<MainHome> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 8.0),
-                child: ElevatedButton(onPressed: (){
+                child:FilledButton.tonal(onPressed: (){
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -63,7 +66,7 @@ class _MainHomeState extends State<MainHome> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 8.0),
-                child: ElevatedButton(onPressed: (){
+                child: FilledButton.tonal(onPressed: (){
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -74,9 +77,9 @@ class _MainHomeState extends State<MainHome> {
                   );
                 },child: Text('Exercicio 03')),
               ),
-              Padding(
+                   Padding(
                 padding: const EdgeInsets.only(top: 8.0),
-                child: ElevatedButton(onPressed: (){
+                child: FilledButton.tonal(onPressed: (){
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -87,19 +90,35 @@ class _MainHomeState extends State<MainHome> {
                   );
                 },child: Text('Exercicio 04')),
               ),
+               Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: FilledButton.tonal(onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const Exercicio05();
+                      },
+                    ),
+                  );
+                },child: Text('Exercicio 05')),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: FilledButton.tonal(onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const Calculadora_Gridview();
+                      },
+                    ),
+                  );
+                },child: Text('Calculadora Gridview')),
+              ),
             ],
           ),
         ),
-      floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.add_circle,
-            semanticLabel: 'Incrementar Contador',
-            size: 55.0,
-          ),
-          onPressed: (){
-            setState(() {
-              counter++;
-            });
-          }),
     );
   }
 }

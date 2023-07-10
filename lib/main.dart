@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       animation: DarkThemeConfig.instance,
       builder: (context, child) {
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'SL3V1 App',
           theme: ThemeData(
             brightness: DarkThemeConfig.instance.isDarkTheme

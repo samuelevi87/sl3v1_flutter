@@ -4,8 +4,6 @@
     - Exiba o contador em tela
  */
 
-
-
 import 'package:flutter/material.dart';
 
 class CounterHome extends StatefulWidget {
@@ -23,6 +21,7 @@ class _CounterHomeState extends State<CounterHome> {
       _counter++;
     });
   }
+
   void _decrementCounter() {
     setState(() {
       _counter--;
@@ -39,12 +38,27 @@ class _CounterHomeState extends State<CounterHome> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Container(
+              color: Colors.black12,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('Crie uma tela com um contador e dois botões. Um botão (+) irá incrementar o contador; Um botão (-) irá decrementar o contador; Exiba o contador em tela;',
+                    style: TextStyle(
+                      fontWeight: FontWeight.normal,
+                      fontStyle: FontStyle.italic,
+                    ),
+                    textAlign: TextAlign.justify),
+              ),
+            ),
             const Text(
               'Seu contador está em:',
+              style: TextStyle(fontSize: 30),
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: TextStyle(
+                  color: (_counter > 0 ? Colors.green : Colors.red),
+                  fontSize: 30),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -52,19 +66,22 @@ class _CounterHomeState extends State<CounterHome> {
               children: [
                 Row(
                   children: <Widget>[
-
                     Column(
                       children: [
-                        ElevatedButton(onPressed: _incrementCounter, child: const Icon(Icons.add_circle)),
+                        ElevatedButton(
+                            onPressed: _decrementCounter,
+                            child: const Icon(Icons.remove_circle)),
                       ],
                     ),
                     Column(
                       children: [
-                        ElevatedButton(onPressed: _decrementCounter, child: const Icon(Icons.remove_circle)),
+                        ElevatedButton(
+                            onPressed: _incrementCounter,
+                            child: const Icon(Icons.add_circle)),
                       ],
-                    ),],
+                    ),
+                  ],
                 ),
-
               ],
             )
           ],
@@ -77,5 +94,4 @@ class _CounterHomeState extends State<CounterHome> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
-  }
-
+}
