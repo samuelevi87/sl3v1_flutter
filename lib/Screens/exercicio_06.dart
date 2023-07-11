@@ -9,6 +9,7 @@ class Exercicio06 extends StatefulWidget {
 
 class _Exercicio06State extends State<Exercicio06> {
   final formKey = GlobalKey<FormState>();
+  bool _obscureText = true;
 
   TextEditingController loginController = TextEditingController();
   TextEditingController senhaController = TextEditingController();
@@ -62,7 +63,7 @@ class _Exercicio06State extends State<Exercicio06> {
                 ),
                 TextFormField(
                   maxLength: 12,
-                  obscureText: true,
+                  obscureText: _obscureText,
                   decoration: InputDecoration(
                     labelText: "Senha",
                     hintText: "Digite sua Senha!",
@@ -76,6 +77,15 @@ class _Exercicio06State extends State<Exercicio06> {
                       return "A senha deve ter entre 6 e 12 caracteres!";
                     }
                   },
+                ),
+                SizedBox(height: 20.0),
+                FilledButton.tonal(
+                  onPressed: () {
+                    setState(() {
+                      _obscureText = !_obscureText;
+                    });
+                  },
+                  child: Icon(_obscureText ? Icons.remove_red_eye_outlined : Icons.remove_red_eye),
                 ),
                 SizedBox(
                   height: 20,
