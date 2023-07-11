@@ -7,6 +7,8 @@ import 'package:sl3v1_flutter/Screens/exercicio_04.dart';
 import 'package:sl3v1_flutter/Screens/exercicio_05.dart';
 import 'package:sl3v1_flutter/Screens/calculadora_gridview.dart';
 
+import 'exercicio_06.dart';
+
 class MainHome extends StatefulWidget {
   const MainHome({super.key, required this.title});
 
@@ -101,6 +103,20 @@ class _MainHomeState extends State<MainHome> {
                   );
                 },child: Text('Exercicio 05')),
               ),
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: FilledButton.tonal(onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const Exercicio06();
+                      },
+                    ),
+                  );
+                },child: Text('Exercicio 06')),
+              ),
+
               Padding(
                 padding: const EdgeInsets.only(top: 8.0),
                 child: FilledButton.tonal(onPressed: (){
