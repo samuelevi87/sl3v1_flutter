@@ -7,6 +7,7 @@ import 'package:sl3v1_flutter/Screens/exercicio_03.dart';
 import 'package:sl3v1_flutter/Screens/exercicio_04.dart';
 import 'package:sl3v1_flutter/Screens/exercicio_05.dart';
 import 'package:sl3v1_flutter/Screens/exercicio_07.dart';
+import 'package:sl3v1_flutter/Screens/exercicio_08.dart';
 
 import 'exercicio_06.dart';
 
@@ -144,6 +145,22 @@ class _MainHomeState extends State<MainHome> {
                   },
                   child: Text('Exercício 07')),
             ),
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: FilledButton.tonal(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const Exercicio08();
+                        },
+                      ),
+                    );
+                  },
+                  child: Text('Exercício 08')),
+            ),
+
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: FilledButton.tonal(
