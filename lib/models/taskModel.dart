@@ -1,6 +1,6 @@
 class TaskModel {
   String nome;
-  bool completed;
+  bool concluido;
 
-  TaskModel({required this.nome, required this.completed});
+  TaskModel({required this.nome, required this.concluido});
 }
