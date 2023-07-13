@@ -55,7 +55,7 @@ class _Exercicio06State extends State<Exercicio06> {
                   controller: loginController,
                   validator: (value) {
                     if (value == null) return "O valor informado é nulo";
-                    if (value!.trim().isEmpty) return "O nome é obrigatório";
+                    if (value!.trim().isEmpty) return "O usuário é obrigatório";
                   },
                 ),
                 SizedBox(
@@ -68,6 +68,11 @@ class _Exercicio06State extends State<Exercicio06> {
                     labelText: "Senha",
                     hintText: "Digite sua Senha!",
                     border: OutlineInputBorder(),
+                    suffixIcon: IconButton(onPressed: (){
+                      setState(() {
+                        _obscureText = !_obscureText;
+                      });
+                    }, icon: Icon(_obscureText ? Icons.visibility : Icons.visibility_off))
                   ),
                   controller: senhaController,
                   validator: (value) {
@@ -76,25 +81,17 @@ class _Exercicio06State extends State<Exercicio06> {
                     if ((value!.length < 6) || value!.length > 12) {
                       return "A senha deve ter entre 6 e 12 caracteres!";
                     }
+                    if (value == "123456") {
+                      return "Essa senha jé é usada pelo usuário pedro23, escolha outra!";
+                    }
                   },
                 ),
                 SizedBox(height: 20.0),
-                FilledButton.tonal(
-                  onPressed: () {
-                    setState(() {
-                      _obscureText = !_obscureText;
-                    });
-                  },
-                  child: Icon(_obscureText ? Icons.remove_red_eye_outlined : Icons.remove_red_eye),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
                 FilledButton.tonal(onPressed: (){
                   if (this.formKey.currentState!.validate()) {
                     print("Salvando dados");                    
                   }  
-                }, child: Icon(Icons.save))
+                }, child: const Icon(Icons.save))
               ],
             )),
       ),
