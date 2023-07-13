@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sl3v1_flutter/AppControllers/dark_theme_config.dart';
+import 'package:sl3v1_flutter/Screens/exercicio_01.dart';
 import 'package:sl3v1_flutter/Screens/main_home.dart';
 
 void main() {
@@ -24,7 +25,13 @@ class MyApp extends StatelessWidget {
                 : Brightness.light,
             primarySwatch: Colors.blueGrey,
           ),
-          home: const MainHome(title: 'Aprendendo Flutter +Devs2Blu'),
+          // home: const MainHome(title: 'Aprendendo Flutter +Devs2Blu'),
+          initialRoute: "/mainHome",
+          routes: {
+            "/mainHome": (context) =>
+                MainHome(title: 'Aprendendo Flutter +Devs2Blu'),
+            "/exercicio01": (context) => Exercicio01(),
+          },
         );
       },
     );

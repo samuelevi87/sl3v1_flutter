@@ -10,20 +10,20 @@ class Exercicio08 extends StatefulWidget {
 }
 
 class _Exercicio08State extends State<Exercicio08> {
-  List<TaskModel> tasks = [];
-  TextEditingController task = TextEditingController();
+  List<TaskModel> listaTarefas = [];
+  TextEditingController tarefaController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   void adicionarTarefa(String task) {
     setState(() {
-      tasks.add(TaskModel(nome: task, completed: false));
+      listaTarefas.add(TaskModel(nome: task, concluido: false));
     });
-    this.task.clear();
+    this.tarefaController.clear();
   }
 
-  void toggleConclusao(int index) {
+  void estaConcluido(int index) {
     setState(() {
-      tasks[index].completed = !tasks[index].completed;
+      listaTarefas[index].concluido = !listaTarefas[index].concluido;
     });
   }
 
@@ -31,23 +31,27 @@ class _Exercicio08State extends State<Exercicio08> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
+        String editedTask = listaTarefas[index].nome;
         return AlertDialog(
           title: const Text('Editar Tarefa'),
           content: TextFormField(
-            initialValue: tasks[index].nome,
+            initialValue: listaTarefas[index].nome,
             onChanged: (value) {
-              tasks[index].nome = value;
+              editedTask = value;
             },
           ),
           actions: [
-            ElevatedButton(
+            FilledButton.tonal(
               onPressed: () {
                 Navigator.pop(context);
               },
               child: const Text('Cancelar'),
             ),
-            ElevatedButton(
+            FilledButton.tonal(
               onPressed: () {
+                setState(() {
+                  listaTarefas[index].nome = editedTask;
+                });
                 Navigator.pop(context);
               },
               child: const Text('Salvar'),
@@ -59,11 +63,12 @@ class _Exercicio08State extends State<Exercicio08> {
   }
 
   int getTarefasConcluidas() {
-    return tasks.where((task) => task.completed).length;
+    return listaTarefas.where((task) => task.concluido).length;
   }
 
   bool todasTarefasConcluidas() {
-    return tasks.isNotEmpty && getTarefasConcluidas() == tasks.length;
+    return listaTarefas.isNotEmpty &&
+        getTarefasConcluidas() == listaTarefas.length;
   }
 
   @override
@@ -85,7 +90,7 @@ class _Exercicio08State extends State<Exercicio08> {
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
                       autofocus: true,
-                      controller: task,
+                      controller: tarefaController,
                       decoration: const InputDecoration(
                         labelText: "Tarefa",
                         border: OutlineInputBorder(),
@@ -100,39 +105,42 @@ class _Exercicio08State extends State<Exercicio08> {
                     ),
                   ),
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    if (formKey.currentState!.validate()) {
-                      adicionarTarefa(task.text);
-                    }
-                  },
-                  child: const Icon(Icons.add),
+                Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: FilledButton.tonal(
+                    onPressed: () {
+                      if (formKey.currentState!.validate()) {
+                        adicionarTarefa(tarefaController.text);
+                      }
+                    },
+                    child: const Icon(Icons.add),
+                  ),
                 ),
               ],
             ),
             Expanded(
               child: ListView.builder(
-                itemCount: tasks.length,
+                itemCount: listaTarefas.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    leading: tasks[index].completed
+                    leading: listaTarefas[index].concluido
                         ? Icon(
                             Icons.check,
                             color: Colors.green,
                           )
                         : Icon(Icons.note_alt_rounded),
                     title: Text(
-                      tasks[index].nome,
-                      style: tasks[index].completed
+                      listaTarefas[index].nome,
+                      style: listaTarefas[index].concluido
                           ? TextStyle(
                               decoration: TextDecoration.lineThrough,
                             )
                           : null,
                     ),
                     trailing: Checkbox(
-                      value: tasks[index].completed,
+                      value: listaTarefas[index].concluido,
                       onChanged: (value) {
-                        toggleConclusao(index);
+                        estaConcluido(index);
                       },
                     ),
                     onLongPress: () {
