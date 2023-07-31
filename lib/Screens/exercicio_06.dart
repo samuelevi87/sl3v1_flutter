@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sl3v1_flutter/widgets/senhaField.dart';
 
 class Exercicio06 extends StatefulWidget {
   const Exercicio06({super.key});
@@ -61,37 +62,15 @@ class _Exercicio06State extends State<Exercicio06> {
                 SizedBox(
                   height: 20,
                 ),
-                TextFormField(
-                  maxLength: 12,
-                  obscureText: _obscureText,
-                  decoration: InputDecoration(
-                    labelText: "Senha",
-                    hintText: "Digite sua Senha!",
-                    border: OutlineInputBorder(),
-                    suffixIcon: IconButton(onPressed: (){
-                      setState(() {
-                        _obscureText = !_obscureText;
-                      });
-                    }, icon: Icon(_obscureText ? Icons.visibility : Icons.visibility_off))
-                  ),
-                  controller: senhaController,
-                  validator: (value) {
-                    if (value == null) return "A senha não pode ser nula";
-                    if (value!.trim().isEmpty) return "Informe a senha!";
-                    if ((value!.length < 6) || value!.length > 12) {
-                      return "A senha deve ter entre 6 e 12 caracteres!";
-                    }
-                    if (value == "123456") {
-                      return "Essa senha jé é usada pelo usuário pedro23, escolha outra!";
-                    }
-                  },
-                ),
+                SenhaField(),
                 SizedBox(height: 20.0),
-                FilledButton.tonal(onPressed: (){
-                  if (this.formKey.currentState!.validate()) {
-                    print("Salvando dados");                    
-                  }  
-                }, child: const Icon(Icons.save))
+                FilledButton.tonal(
+                    onPressed: () {
+                      if (this.formKey.currentState!.validate()) {
+                        print("Salvando dados");
+                      }
+                    },
+                    child: const Icon(Icons.save))
               ],
             )),
       ),

@@ -34,18 +34,21 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.5
   math_expressions: ^2.4.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_image_compress: ^2.0.4
+  provider: ^6.0.5
+  video_player: ^2.7.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -63,6 +66,10 @@ flutter:
     - assets/326.jpg
     - assets/jw.gif
     - assets/butler-devil.png
+    - assets/well_done.gif
+    - assets/sl3v1-logo_vectorized.png
+    - assets/sl3v1-logo-video-01.gif
+    - assets/sl3v1-logo-video-02.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

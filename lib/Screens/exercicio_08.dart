@@ -124,7 +124,7 @@ class _Exercicio08State extends State<Exercicio08> {
                 itemBuilder: (context, index) {
                   return ListTile(
                     leading: listaTarefas[index].concluido
-                        ? Icon(
+                        ? const Icon(
                             Icons.check,
                             color: Colors.green,
                           )
@@ -132,7 +132,7 @@ class _Exercicio08State extends State<Exercicio08> {
                     title: Text(
                       listaTarefas[index].nome,
                       style: listaTarefas[index].concluido
-                          ? TextStyle(
+                          ? const TextStyle(
                               decoration: TextDecoration.lineThrough,
                             )
                           : null,
@@ -149,6 +149,21 @@ class _Exercicio08State extends State<Exercicio08> {
                   );
                 },
               ),
+            ),
+            Column(
+              children: [
+                if (todasTarefasConcluidas())
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Image(
+                      image: AssetImage(
+                        "assets/well_done.gif",
+                      ),
+                      height: 300,
+                      width: 300,
+                    ),
+                  ),
+              ],
             ),
             Container(
               padding: const EdgeInsets.all(16.0),
